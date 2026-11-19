@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://snap2ai-site.vercel.app/sitemap.xml

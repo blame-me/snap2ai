@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Privacy · Snap2AI</title>
+<meta name="description" content="What Snap2AI handles, where your screenshot goes, and what stays on your machine." />
+<meta name="theme-color" content="#F4F1EA" />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://snap2ai-site.vercel.app/privacy" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2317140F'/%3E%3Ccircle cx='16' cy='16' r='6.5' fill='none' stroke='%23D97757' stroke-width='2.4'/%3E%3Ccircle cx='16' cy='16' r='2.2' fill='%23D97757'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header class="nav is-scrolled">
+  <div class="wrap nav-inner">
+    <a class="brand" href="/" aria-label="Snap2AI home">
+      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+        <rect width="32" height="32" rx="8" fill="#17140F" />
+        <circle cx="16" cy="16" r="6.5" fill="none" stroke="#D97757" stroke-width="2.2" />
+        <circle cx="16" cy="16" r="2.2" fill="#D97757" />
+      </svg>
+      <span>Snap2AI</span>
+    </a>
+    <div class="nav-actions">
+      <a class="btn btn-ghost" href="/">Back to site</a>
+    </div>
+  </div>
+</header>
+
+<main class="legal">
+  <div class="wrap legal-wrap">
+    <p class="kicker">Privacy</p>
+    <h1>Short version: your screen goes to your AI, not to us.</h1>
+    <p class="legal-meta">Last updated 18 November 2026</p>
+
+    <div class="legal-box">
+      <p><strong>There is no Snap2AI server.</strong> The extension runs entirely in your browser. It has no analytics, no account system, no advertising and no way for the developer to see your screenshots or your answers.</p>
+    </div>
+
+    <h2>What the extension handles</h2>
+    <p>When you press <span class="kbd-inline">Alt</span> + <span class="kbd-inline">S</span> or click Capture, Snap2AI takes a PNG of the visible screen in the active tab and holds it in memory long enough to upload it to the AI site you selected.</p>
+    <p>It also stores the settings you choose (provider, prompt, toggles) and a short local history of recent answers.</p>
+
+    <h2>Where the data goes</h2>
+    <p>The screenshot is pasted into the AI web app you picked, in a background tab, using the session you are already signed into. From that point the image and the prompt are handled by that provider under its own privacy policy: Google Gemini, OpenAI ChatGPT, Anthropic Claude, xAI Grok, Microsoft Copilot, Perplexity, DeepSeek or Mistral.</p>
+    <p>Snap2AI does not proxy, copy or retain the request. There is no intermediate server to leak.</p>
+
+    <h2>What is stored on your machine</h2>
+    <ul>
+      <li><strong>Settings</strong> in <code>chrome.storage.sync</code>, so they follow your browser profile.</li>
+      <li><strong>Recent answers</strong> in <code>chrome.storage.local</code>, capped to a short list and clearable from the popup.</li>
+    </ul>
+    <p>Uninstalling the extension removes both. Nothing is written to disk outside the browser's extension storage.</p>
+
+    <h2>Permissions and why</h2>
+    <ul>
+      <li><strong>activeTab</strong> captures the tab only after you trigger a capture.</li>
+      <li><strong>tabs</strong> opens and focuses the AI page in the background.</li>
+      <li><strong>scripting</strong> injects the answer panel and the automation helpers into that AI tab.</li>
+      <li><strong>storage</strong> keeps settings and local history.</li>
+      <li><strong>Host access</strong> is limited to the eight AI domains listed above.</li>
+    </ul>
+
+    <h2>What Snap2AI never does</h2>
+    <ul>
+      <li>No analytics, telemetry, crash reporting or fingerprinting.</li>
+      <li>No ads, affiliate links or data resale.</li>
+      <li>No reading of pages other than the ones you explicitly capture.</li>
+      <li>No collection of names, emails, payment details or location.</li>
+    </ul>
+
+    <h2>Your choices</h2>
+    <p>Turn the extension off from the toolbar popup, clear history there, or uninstall it. You can also stay entirely signed out of the AI sites and never trigger a capture.</p>
+
+    <h2>Changes</h2>
+    <p>If this policy ever changes, the date at the top changes with it, and the diff is public in the <a href="https://github.com/blame-me/snap2ai/tree/master/site" target="_blank" rel="noopener">site source</a>.</p>
+
+    <h2>Contact</h2>
+    <p>Questions or a correction: <a href="https://github.com/blame-me/snap2ai/issues/new" target="_blank" rel="noopener">open an issue</a>.</p>
+
+    <p class="legal-back"><a href="/">← Back to Snap2AI</a></p>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="wrap foot-bottom" style="margin-top:0;border-top:none">
+    <p>© <span id="year">2026</span> Snap2AI. Not affiliated with Google, Anthropic, OpenAI or any AI provider it opens.</p>
+    <p class="sig" title="say hi">made by eden for bonnier</p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

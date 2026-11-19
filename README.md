@@ -113,7 +113,8 @@ panel.js / ui.css  the in-page answer panel
 popup.html/js      toolbar popup
 options.html/js    settings and about
 icons/             toolbar icons
-docs/preview.png   the image at the top of this README
+docs/              preview image and distribution checklist
+site/              landing page and privacy policy (deployed separately)
 ```
 
 `background.js` drives the flow and injects self-contained functions into the AI tab (`aiPaste`, `aiSend`, `aiRead`...). Each provider has its own selectors. When a site changes its DOM, that provider's block is usually the only thing to update.

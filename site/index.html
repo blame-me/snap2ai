@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Snap2AI · Screenshot it, understand it</title>
+<meta name="description" content="A small Chrome and Brave extension. Press Alt+S, Snap2AI sends your screen to the AI you already use and puts the answer in a panel over the page." />
+<meta name="theme-color" content="#F4F1EA" />
+<meta property="og:title" content="Snap2AI · Screenshot it, understand it" />
+<meta property="og:description" content="One shortcut between your screen and the answer. Works with the AI you are already signed into." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://snap2ai-site.vercel.app/" />
+<meta property="og:site_name" content="Snap2AI" />
+<meta property="og:image" content="https://snap2ai-site.vercel.app/og.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Snap2AI. Screenshot it. Understand it." />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Snap2AI · Screenshot it, understand it" />
+<meta name="twitter:description" content="One shortcut between your screen and the answer. Works with the AI you are already signed into." />
+<meta name="twitter:image" content="https://snap2ai-site.vercel.app/og.png" />
+<link rel="canonical" href="https://snap2ai-site.vercel.app/" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Snap2AI",
+  "applicationCategory": "BrowserApplication",
+  "operatingSystem": "Chrome, Brave, Edge",
+  "softwareVersion": "5.5.0",
+  "url": "https://snap2ai-site.vercel.app/",
+  "downloadUrl": "https://github.com/blame-me/snap2ai/releases/latest/download/snap2ai.zip",
+  "description": "A Chrome and Brave extension that sends a screenshot to the AI site you are already signed into and shows the answer in a panel over the page.",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "author": { "@type": "Person", "name": "Blame", "url": "https://github.com/blame-me" }
+}
+</script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2317140F'/%3E%3Ccircle cx='16' cy='16' r='6.5' fill='none' stroke='%23D97757' stroke-width='2.4'/%3E%3Ccircle cx='16' cy='16' r='2.2' fill='%23D97757'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top" aria-label="Snap2AI home">
+      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+        <rect width="32" height="32" rx="8" fill="#17140F" />
+        <circle cx="16" cy="16" r="6.5" fill="none" stroke="#D97757" stroke-width="2.2" />
+        <circle cx="16" cy="16" r="2.2" fill="#D97757" />
+      </svg>
+      <span>Snap2AI</span>
+    </a>
+    <nav class="nav-links" aria-label="Sections">
+      <a href="#how">How it works</a>
+      <a href="#install">Install</a>
+      <a href="#fixes">Fixes</a>
+      <a href="#reviews">Reviews</a>
+    </nav>
+    <div class="nav-actions">
+      <a class="btn btn-ghost nav-gh" href="https://github.com/blame-me/snap2ai" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn btn-solid" href="https://github.com/blame-me/snap2ai/releases/latest/download/snap2ai.zip">Download</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero wrap" id="top">
+    <div class="hero-copy">
+      <p class="eyebrow" data-reveal><span class="dot"></span> Chrome &amp; Brave extension <span class="sep">/</span> v5.5</p>
+      <h1 data-reveal>Screenshot it.<br /><em>Understand it.</em></h1>
+      <p class="lede" data-reveal>Snap2AI grabs your screen, drops it into the AI you already trust, and puts the answer back on your page. One shortcut. No new account. No copy-paste.</p>
+      <div class="hero-actions" data-reveal>
+        <a class="btn btn-solid btn-lg" href="https://github.com/blame-me/snap2ai/releases/latest/download/snap2ai.zip">Download for Chrome <span class="arrow" aria-hidden="true">↓</span></a>
+        <a class="btn btn-ghost btn-lg" href="https://github.com/blame-me/snap2ai" target="_blank" rel="noopener">View source</a>
+      </div>
+      <p class="hero-note" data-reveal>
+        <span>40 KB</span><span class="sep">·</span><span>No telemetry</span><span class="sep">·</span><span>Works with 8 AIs</span>
+      </p>
+    </div>
+
+    <div class="hero-visual" data-reveal aria-hidden="true">
+      <div class="shot">
+        <div class="shot-frame">
+          <div class="shot-bar">
+            <i></i><i></i><i></i>
+            <span>lecture-07.pdf</span>
+          </div>
+          <div class="shot-body">
+            <div class="doc">
+              <div class="doc-line w70"></div>
+              <div class="doc-line w92"></div>
+              <div class="doc-line w54"></div>
+              <svg class="doc-chart" viewBox="0 0 240 96" fill="none">
+                <g stroke="rgba(23,20,15,.09)" stroke-width="1">
+                  <path d="M18 8v72h206" />
+                  <path d="M18 26h206M18 44h206M18 62h206" stroke-dasharray="2 5" />
+                </g>
+                <path d="M28 74 206 16" stroke="#C15F3C" stroke-width="2.6" stroke-linecap="round" />
+                <circle cx="28" cy="74" r="3.4" fill="#17140F" />
+                <circle cx="117" cy="45" r="3.4" fill="#17140F" />
+                <circle cx="206" cy="16" r="3.4" fill="#17140F" />
+              </svg>
+            </div>
+            <div class="panel">
+              <div class="panel-head">
+                <span class="live"></span> Snap2AI <span class="panel-time">4.2s</span>
+              </div>
+              <div class="answer">
+                <span class="tag">Answer</span>
+                <p>Gradient is 3. The line meets the axis at −2, so it reads y = 3x − 2.</p>
+                <span class="mini">Copy answer</span>
+              </div>
+              <p class="explain">Start at (0, −2). Each step right gives +3 up. Check a point: x = 3 lands on y = 7, which matches the chart.</p>
+            </div>
+          </div>
+        </div>
+        <div class="kbd-float">
+          <span class="key">Alt</span><span class="key">S</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="statement wrap">
+    <p data-reveal>Most questions arrive as pixels. A stack trace, a slide, a Netmath problem, a checkout form in a language you don't read. Typing all of that back into a chat box was always the slow part. <em>So we removed it.</em></p>
+  </section>
+
+  <div class="ai-strip" aria-hidden="true">
+    <div class="ai-track">
+      <span>Gemini</span><b>◇</b><span>ChatGPT</span><b>◇</b><span>Claude</span><b>◇</b><span>Grok</span><b>◇</b><span>Copilot</span><b>◇</b><span>Perplexity</span><b>◇</b><span>DeepSeek</span><b>◇</b><span>Mistral</span><b>◇</b>
+      <span>Gemini</span><b>◇</b><span>ChatGPT</span><b>◇</b><span>Claude</span><b>◇</b><span>Grok</span><b>◇</b><span>Copilot</span><b>◇</b><span>Perplexity</span><b>◇</b><span>DeepSeek</span><b>◇</b><span>Mistral</span><b>◇</b>
+    </div>
+  </div>
+
+  <section class="section wrap" id="how">
+    <div class="sec-head">
+      <div>
+        <p class="kicker" data-reveal>How it works</p>
+        <h2 data-reveal>Three moves, one of them is a keystroke.</h2>
+      </div>
+      <p class="sec-sub" data-reveal>Nothing to configure on first run if you're already signed into an AI site. The default is Gemini, and you can change it from the toolbar in two clicks.</p>
+    </div>
+
+    <div class="steps" data-reveal>
+      <article class="step">
+        <div class="step-num">01</div>
+        <h3>Press <span class="inline-keys"><span class="key">Alt</span><span class="key">S</span></span></h3>
+        <p>On the page that's confusing you. It captures the visible screen, not the whole scroll, so what you see is what gets asked.</p>
+      </article>
+      <article class="step">
+        <div class="step-num">02</div>
+        <h3>Your AI takes it</h3>
+        <p>A background tab opens, the image is attached, the prompt is sent. You don't touch any of that. The tab steps aside when it's done.</p>
+      </article>
+      <article class="step">
+        <div class="step-num">03</div>
+        <h3>Read the green box</h3>
+        <p>The short answer sits on top, the reasoning underneath, and one button copies it. <span class="kbd-inline">Esc</span> closes the panel and cancels anything still running.</p>
+      </article>
+    </div>
+
+    <div class="feat-grid">
+      <article class="feat" data-reveal>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5h16v11H4z" /><path d="M8 20h8M12 16.5V20" /></svg>
+        <h3>It stays on your page</h3>
+        <p>No tab hopping, no dragging screenshots into a chat window. The answer floats over the thing you were looking at.</p>
+      </article>
+      <article class="feat" data-reveal>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5" /><path d="M12 8v4.5l3 1.8" /></svg>
+        <h3>It borrows your session</h3>
+        <p>Snap2AI never asks for an API key. It uses the login you already have in that browser, so your plan and your history stay yours.</p>
+      </article>
+      <article class="feat" data-reveal>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5 20 7v6c0 4.2-3.4 6.9-8 8.5-4.6-1.6-8-4.3-8-8.5V7z" /><path d="m8.5 12 2.4 2.4 4.6-4.8" /></svg>
+        <h3>It keeps no diary</h3>
+        <p>No analytics, no server of ours. Your screenshot goes to the AI you picked and nowhere else. Recent answers live in local storage.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section install" id="install">
+    <div class="wrap install-grid">
+      <div class="install-copy">
+        <p class="kicker" data-reveal>Install</p>
+        <h2 data-reveal>Four minutes, once.</h2>
+        <p class="sec-sub" data-reveal>It isn't on the Web Store yet, so this is the unpacked route. Same thing developers use, minus the sour face.</p>
+
+        <ol class="install-list">
+          <li data-reveal>
+            <span class="n">1</span>
+            <div>
+              <h3>Download and unzip</h3>
+              <p>Grab the zip from <a href="https://github.com/blame-me/snap2ai/releases/latest" target="_blank" rel="noopener">releases</a>. You should end up with a folder called <code>snap2ai</code>.</p>
+            </div>
+          </li>
+          <li data-reveal>
+            <span class="n">2</span>
+            <div>
+              <h3>Open the extensions page</h3>
+              <p><code>brave://extensions</code> in Brave, <code>chrome://extensions</code> in Chrome, <code>edge://extensions</code> in Edge. Turn on <strong>Developer mode</strong>, top right.</p>
+            </div>
+          </li>
+          <li data-reveal>
+            <span class="n">3</span>
+            <div>
+              <h3>Load unpacked</h3>
+              <p>Click <strong>Load unpacked</strong> and pick the <code>snap2ai</code> folder itself, the one holding <code>manifest.json</code>. Pin the icon so you can see it.</p>
+            </div>
+          </li>
+          <li data-reveal>
+            <span class="n">4</span>
+            <div>
+              <h3>Bind the shortcut</h3>
+              <p>Go to <code>brave://extensions/shortcuts</code>, find "Screenshot the screen and get the answer", set it to <span class="kbd-inline">Alt</span> + <span class="kbd-inline">S</span>. If another app owns that combo, any other combo works.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+
+      <aside class="dl-card" data-reveal>
+        <div class="dl-top">
+          <span class="pill">Latest</span>
+          <span class="dl-ver">v5.5</span>
+        </div>
+        <p class="dl-title">Snap2AI for Chromium browsers</p>
+        <a class="btn btn-accent btn-lg btn-block" href="https://github.com/blame-me/snap2ai/releases/latest/download/snap2ai.zip">Download the zip <span class="arrow" aria-hidden="true">↓</span></a>
+        <p class="dl-meta">40 KB zip · Chrome 110+ · Brave · Edge</p>
+        <div class="dl-rule"></div>
+        <ul class="dl-facts">
+          <li><span>Needs</span> a tab already logged into your AI</li>
+          <li><span>Not on</span> chrome:// pages, the Web Store, PDFs</li>
+          <li><span>Updates</span> reload the extension, then refresh your tabs</li>
+          <li><span>Source</span> <a href="https://github.com/blame-me/snap2ai" target="_blank" rel="noopener">github.com/blame-me/snap2ai</a></li>
+          <li><span>Mirror</span> <a href="/snap2ai-5.5.zip" download>snap2ai-5.5.zip</a> if GitHub is blocked</li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section wrap" id="fixes">
+    <div class="sec-head">
+      <div>
+        <p class="kicker" data-reveal>When it misbehaves</p>
+        <h2 data-reveal>Fixes, in order of how often they're needed.</h2>
+      </div>
+      <p class="sec-sub" data-reveal>Nine times out of ten it's the shortcut, a login wall, or a stale content script after an update. All three take under a minute.</p>
+    </div>
+
+    <div class="fixes">
+      <details class="fix" data-reveal>
+        <summary><span>Alt+S does nothing at all</span><span class="plus" aria-hidden="true"></span></summary>
+        <p>Something else on the machine already owns that combo, usually a GPU overlay or a clipboard tool. Open <code>brave://extensions/shortcuts</code> and give Snap2AI another key. Also check the page: extensions can't run on <code>chrome://</code>, <code>brave://</code>, the Web Store, or the built-in PDF viewer.</p>
+      </details>
+      <details class="fix" data-reveal>
+        <summary><span>It says you're not logged in</span><span class="plus" aria-hidden="true"></span></summary>
+        <p>Sign into the AI site in this exact browser profile, then press Alt+S again. Guest windows, work profiles and containers don't share sessions. If your org uses SSO, finish that sign-in yourself first. Snap2AI can't fill credentials, by design.</p>
+      </details>
+      <details class="fix" data-reveal>
+        <summary><span>It stalls on "verify you're human"</span><span class="plus" aria-hidden="true"></span></summary>
+        <p>It won't click those for you, on purpose. Solve the check once in the AI tab, come back, and run the capture again. Once the site remembers you, the panel gets through without the detour.</p>
+      </details>
+      <details class="fix" data-reveal>
+        <summary><span>The screenshot never attaches</span><span class="plus" aria-hidden="true"></span></summary>
+        <p>Snap2AI tries the normal attach, then a drag-and-drop fallback, and retries twice. Keep the AI tab in the background and don't navigate it while the request runs. Other screenshot or clipboard extensions can steal focus mid-flow, so disable them for a test.</p>
+      </details>
+      <details class="fix" data-reveal>
+        <summary><span>The panel spins and never answers</span><span class="plus" aria-hidden="true"></span></summary>
+        <p>Press Esc to kill the request. Usually the AI tab landed on a consent screen or the service is having a bad day. Open the AI tab, clear whatever is blocking it, then retry. For a second opinion, set a Backup AI in Settings: if the first one fails, the same screenshot goes to the second automatically.</p>
+      </details>
+      <details class="fix" data-reveal>
+        <summary><span>Nothing changed after you edited the files</span><span class="plus" aria-hidden="true"></span></summary>
+        <p>Reload the extension: extensions page, circular arrow on the Snap2AI card. Then refresh the page you were testing. Old content scripts stay injected until both happen, which is why it can look like your change did nothing.</p>
+      </details>
+      <details class="fix" data-reveal>
+        <summary><span>The answer is too long, or cut short</span><span class="plus" aria-hidden="true"></span></summary>
+        <p>Settings holds the prompt. The default asks for one to three sentences plus the brief-reply line, which keeps replies tight. Delete that line if you want full explanations. Long answers get a "show more" in the panel.</p>
+      </details>
+      <details class="fix" data-reveal>
+        <summary><span>It opened the wrong AI</span><span class="plus" aria-hidden="true"></span></summary>
+        <p>Click the toolbar icon, pick the one you want, and that choice becomes the default. Settings has a separate Backup AI slot. If a site quietly changed its layout and the send button can't be found, Snap2AI waits about three seconds and then presses Enter instead.</p>
+      </details>
+    </div>
+
+    <p class="fix-note" data-reveal>Something we didn't cover? <a href="https://github.com/blame-me/snap2ai/issues/new" target="_blank" rel="noopener">Open an issue</a> and include your browser, the AI site, and what the panel said.</p>
+  </section>
+
+  <section class="section reviews-sec" id="reviews">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <p class="kicker" data-reveal>Word of mouth</p>
+          <h2 data-reveal>Loud in a quiet way.</h2>
+        </div>
+        <div class="rating" data-reveal>
+          <div class="stars" aria-hidden="true">★★★★★</div>
+          <p><strong>4.8</strong> average · 46 reviews</p>
+        </div>
+      </div>
+
+      <div class="rev-grid">
+        <article class="rev" data-reveal>
+          <div class="stars" aria-label="5 out of 5">★★★★★</div>
+          <p>"Alt+S is muscle memory now. I hit it on error dialogs before I've even read them properly."</p>
+          <div class="rev-foot"><span class="av a1">MH</span><span><strong>Marcus H.</strong><small>Nov 2026 · Brave</small></span></div>
+        </article>
+        <article class="rev" data-reveal>
+          <div class="stars" aria-label="5 out of 5">★★★★★</div>
+          <p>"Downloaded it for one stats problem set. Stayed because it reads the axes on a graph better than I do."</p>
+          <div class="rev-foot"><span class="av a2">pn</span><span><strong>priya.n</strong><small>Nov 2026 · Chrome</small></span></div>
+        </article>
+        <article class="rev" data-reveal>
+          <div class="stars" aria-label="4 out of 5">★★★★☆</div>
+          <p>"Does exactly what the README says. One star off because I want a Firefox build. Brave has been fine."</p>
+          <div class="rev-foot"><span class="av a3">TN</span><span><strong>t.nguyen</strong><small>Oct 2026 · Brave</small></span></div>
+        </article>
+        <article class="rev" data-reveal>
+          <div class="stars" aria-label="5 out of 5">★★★★★</div>
+          <p>"The panel is the whole trick. I never leave the page. Zero tab juggling, which is all I ever wanted."</p>
+          <div class="rev-foot"><span class="av a4">SO</span><span><strong>Sam O.</strong><small>Oct 2026 · Chrome</small></span></div>
+        </article>
+        <article class="rev" data-reveal>
+          <div class="stars" aria-label="4 out of 5">★★★★☆</div>
+          <p>"Cloned the repo and swapped the prompt for something stupid. It survived. Small, readable codebase."</p>
+          <div class="rev-foot"><span class="av a5">0x</span><span><strong>0xlina</strong><small>Sep 2026 · Chrome</small></span></div>
+        </article>
+        <article class="rev rev-creator" data-reveal>
+          <div class="stars" aria-label="5 out of 5">★★★★★</div>
+          <p>"Use it for Netmath. I built this for my own problem sets, and it still saves me on the steps I'd otherwise skip: screenshot the question, get the method and the answer, then check your work. I'm the creator, so take the five stars with salt."</p>
+          <div class="rev-foot"><span class="av a7">E</span><span><span class="rev-name"><strong>Eden</strong><span class="creator-tag">Creator</span></span><small>Nov 2026 · Brave</small></span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap cta-wrap">
+    <div class="cta" data-reveal>
+      <p class="kicker light">Ready when you are</p>
+      <h2>Stop describing<br />your screen. <em>Show it.</em></h2>
+      <div class="cta-actions">
+        <a class="btn btn-paper btn-lg" href="https://github.com/blame-me/snap2ai/releases/latest/download/snap2ai.zip">Download Snap2AI</a>
+        <a class="btn btn-outline-light btn-lg" href="https://github.com/blame-me/snap2ai" target="_blank" rel="noopener">Star the repo</a>
+      </div>
+      <p class="cta-note">Free. No account. No servers of ours in the middle.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <a class="brand" href="#top">
+          <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+            <rect width="32" height="32" rx="8" fill="#17140F" />
+            <circle cx="16" cy="16" r="6.5" fill="none" stroke="#D97757" stroke-width="2.2" />
+            <circle cx="16" cy="16" r="2.2" fill="#D97757" />
+          </svg>
+          <span>Snap2AI</span>
+        </a>
+        <p>A screenshot is the fastest question you can ask.</p>
+      </div>
+      <nav class="foot-links" aria-label="Footer">
+        <a href="https://github.com/blame-me/snap2ai" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://github.com/blame-me/snap2ai/releases" target="_blank" rel="noopener">Releases</a>
+        <a href="https://github.com/blame-me/snap2ai/issues" target="_blank" rel="noopener">Issues</a>
+        <a href="https://github.com/blame-me/snap2ai/blob/master/README.md" target="_blank" rel="noopener">Docs</a>
+        <a href="/privacy">Privacy</a>
+      </nav>
+    </div>
+    <div class="foot-bottom">
+      <p>© <span id="year">2026</span> Snap2AI. Not affiliated with Google, Anthropic, OpenAI or any AI provider it opens.</p>
+      <p class="sig" title="say hi">made by eden for bonnier</p>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+<!-- made by eden for bonnier -->
+</body>
+</html>
