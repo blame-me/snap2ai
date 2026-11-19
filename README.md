@@ -99,6 +99,8 @@ Snap2AI asks for the minimum it needs to do the job, and nothing runs until you 
 
 The screenshot goes to the AI site you selected and nowhere else. There is no Snap2AI backend, no analytics and no account. Answer history is stored in `chrome.storage.local` and can be cleared from the popup.
 
+Full policy: **https://snap2ai-site.vercel.app/privacy**
+
 ## Under the hood
 
 No build step, no dependencies. Plain ES2020 and MV3.
