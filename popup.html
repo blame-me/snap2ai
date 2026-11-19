@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="ui.css">
+<style>
+  body{width:340px;background:var(--card)}
+  .wrap{padding:14px}
+  .top{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+  .status{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--muted)}
+  .status i{width:7px;height:7px;border-radius:50%;background:#22c55e;display:inline-block}
+  body.off .status i{background:#94a3b8}
+  body.off .main{opacity:.45;pointer-events:none;filter:grayscale(.6)}
+  .sec{margin:14px 0 7px;font-size:11px;font-weight:800;letter-spacing:.9px;color:var(--muted)}
+  .go{width:100%;margin-top:14px;padding:12px 14px;font-size:14.5px}
+  .hist{display:flex;flex-direction:column;gap:6px}
+  .h{display:flex;align-items:center;gap:10px;padding:8px 8px 8px 11px;border:1px solid var(--line);border-radius:11px;background:var(--soft)}
+  .h .tag{font-size:10.5px;font-weight:700;color:var(--muted)}
+  .h .tx{font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .cp{display:grid;place-items:center;width:30px;height:30px;border-radius:8px;border:1px solid var(--line);background:var(--card);cursor:pointer;color:var(--muted);flex:none}
+  .cp:hover{color:var(--accent);border-color:var(--accent)}
+  .cp.ok{color:var(--ok);border-color:var(--ok)}
+  .empty{padding:12px;border:1px dashed var(--line);border-radius:11px;color:var(--muted);font-size:12.5px;text-align:center}
+  .foot{display:flex;justify-content:space-between;align-items:center;margin-top:14px;padding-top:11px;border-top:1px solid var(--line);font-size:12px}
+  .foot a{color:var(--accent);cursor:pointer;font-weight:600;text-decoration:none}
+  .foot a:hover{text-decoration:underline}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <img class="logo" src="icons/icon128.png" alt="">
+    <div class="grow">
+      <div class="title">Snap2AI</div>
+      <div class="status"><i></i><span id="state">Ready</span></div>
+    </div>
+    <label class="switch" title="Turn Snap2AI on or off"><input type="checkbox" id="on"><span class="sl"></span></label>
+  </div>
+
+  <div class="main">
+    <div class="sec" style="margin-top:4px">SEND TO</div>
+    <div class="chips" id="chips"></div>
+
+    <button class="btn primary go" id="go">
+      <svg class="icon" viewBox="0 0 24 24"><path d="M4 8V5.5A1.5 1.5 0 0 1 5.5 4H8M16 4h2.5A1.5 1.5 0 0 1 20 5.5V8M20 16v2.5a1.5 1.5 0 0 1-1.5 1.5H16M8 20H5.5A1.5 1.5 0 0 1 4 18.5V16"/><circle cx="12" cy="12" r="2.2"/></svg>
+      Capture screen <span class="key" id="key">Alt + S</span>
+    </button>
+
+    <div class="sec">RECENT ANSWERS</div>
+    <div class="hist" id="hist"></div>
+  </div>
+
+  <div class="foot">
+    <span class="muted" id="hint">Log in to your AI site first</span>
+    <a id="opt">Settings</a>
+  </div>
+</div>
+<script src="shared.js"></script>
+<script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Snap2AI settings</title>
+<link rel="stylesheet" href="ui.css">
+<style>
+  .page{max-width:640px;margin:0 auto;padding:30px 18px 60px}
+  .head{display:flex;align-items:center;gap:14px;margin-bottom:22px}
+  .head .logo{width:48px;height:48px;border-radius:13px}
+  .head h1{margin:0;font-size:22px;letter-spacing:-.4px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;margin-bottom:14px;box-shadow:var(--shadow)}
+  .card h2{margin:0 0 3px;font-size:14.5px}
+  .card .d{margin:0 0 12px;color:var(--muted);font-size:13px}
+  textarea{width:100%;height:96px;resize:vertical;padding:11px 12px;border-radius:11px;border:1px solid var(--line);background:var(--soft);
+    color:var(--fg);font:14px/1.45 system-ui,sans-serif}
+  textarea:focus{outline:2px solid var(--accent);outline-offset:1px;border-color:transparent}
+  .opt{display:flex;align-items:center;gap:14px;padding:12px 0;border-top:1px solid var(--line)}
+  .opt:first-of-type{border-top:0;padding-top:2px}
+  .opt b{display:block;font-weight:600}
+  .link{background:none;border:0;color:var(--accent);cursor:pointer;font-weight:600;padding:0;font-size:12.5px}
+  .link:hover{text-decoration:underline}
+  .tabs{display:flex;gap:6px;margin:0 0 18px;padding:4px;background:var(--soft);border:1px solid var(--line);border-radius:13px}
+  .tab{flex:1;border:0;background:none;color:var(--muted);font:600 13.5px system-ui,sans-serif;padding:9px 10px;border-radius:10px;cursor:pointer}
+  .tab.active{background:var(--card);color:var(--fg);box-shadow:var(--shadow)}
+  .view{display:none}.view.active{display:block}
+  .gh{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--fg);padding:13px 14px;border:1px solid var(--line);border-radius:13px;background:var(--soft)}
+  .gh:hover{border-color:var(--accent)}
+  .gh svg{width:26px;height:26px;fill:currentColor;flex:none}
+  .gh b{display:block;font-size:14px}.gh span{color:var(--muted);font-size:12.5px}
+  .steps{margin:6px 0 0;padding-left:18px;color:var(--fg);font-size:13.5px;line-height:1.6}
+  .cert{position:relative;margin-bottom:14px;padding:6px;border-radius:18px;background:linear-gradient(135deg,#d4af37,#f5e08a 45%,#b8901f);box-shadow:var(--shadow)}
+  .cert-in{border-radius:13px;padding:26px 22px 22px;text-align:center;background:#fffdf5;color:#3b2f0b;border:2px solid #e9d27a}
+  .cert-in .eyebrow{letter-spacing:.28em;font-size:11px;font-weight:700;color:#8a6d12}
+  .cert-in h2{margin:8px 0 10px;font:700 24px Georgia,'Times New Roman',serif;color:#3b2f0b}
+  .cert-in p{margin:6px 0;font-size:13.5px;line-height:1.55;color:#4a3d12}
+  .cert-in .name{font:italic 700 30px Georgia,'Times New Roman',serif;color:#3b2f0b;margin:10px 0;border-bottom:1px solid #d9c16a;display:inline-block;padding:0 22px 4px}
+  .seal{width:64px;height:64px;border-radius:50%;margin:14px auto 4px;display:flex;align-items:center;justify-content:center;
+    background:radial-gradient(circle at 35% 30%,#f5e08a,#c9a227 70%);color:#5a4509;font-weight:800;font-size:11px;letter-spacing:.06em;
+    box-shadow:0 2px 6px rgba(90,69,9,.35),inset 0 0 0 3px rgba(255,255,255,.35)}
+  .cert-in .meta{font-size:11.5px;color:#8a6d12;margin-top:6px}
+  .toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);opacity:0;background:#111827;color:#fff;padding:9px 16px;
+    border-radius:999px;font-weight:600;font-size:13px;transition:all .22s;pointer-events:none}
+  .toast.show{opacity:1;transform:translate(-50%,0)}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="head">
+    <img class="logo" src="icons/icon128.png" alt="">
+    <div><h1>Snap2AI</h1><div class="muted">Made by Blame. Changes in Settings save automatically.</div></div>
+  </div>
+
+  <div class="tabs" role="tablist">
+    <button class="tab" id="tab-about" data-view="about" role="tab">About</button>
+    <button class="tab" id="tab-settings" data-view="settings" role="tab">Settings</button>
+  </div>
+
+  <div class="view" id="view-about">
+    <div class="cert">
+      <div class="cert-in">
+        <div class="eyebrow">CERTIFICATE OF AUTHENTICITY</div>
+        <h2>Snap2AI</h2>
+        <p>This certifies that this copy of Snap2AI was made by</p>
+        <div class="name">Blame</div>
+        <p>Original work &mdash; screenshot your screen, get the answer from your AI.</p>
+        <div class="seal">BLAME</div>
+        <div class="meta" id="certMeta">Version</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Made by Blame</h2>
+      <p class="d">Find more of Blame's projects on GitHub.</p>
+      <a class="gh" href="https://github.com/blame-me" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.6 7.6 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+        <div><b>github.com/blame-me</b><span>Open Blame's GitHub profile</span></div>
+      </a>
+    </div>
+
+    <div class="card">
+      <h2>How Blame made it</h2>
+      <p class="d">Snap2AI is a browser extension built by Blame. No API keys and no extra accounts &mdash; it works through the AI sites you're already logged in to.</p>
+      <ol class="steps">
+        <li>Press <b>Alt + S</b> and Snap2AI takes a screenshot of the page you're on.</li>
+        <li>It opens your chosen AI (Gemini, ChatGPT, Claude, Grok, Copilot, Perplexity, DeepSeek or Mistral) in a tab, attaches the screenshot and sends your prompt.</li>
+        <li>It waits for the AI to finish &mdash; ignoring "searching&hellip;" and thinking messages &mdash; then shows the final answer in a small panel on your page.</li>
+        <li>If the AI fails, it automatically tries your backup AI.</li>
+      </ol>
+    </div>
+
+    <div style="text-align:center"><button class="link" id="toSettings">Go to settings &rarr;</button></div>
+  </div>
+
+  <div class="view" id="view-settings">
+  <div class="card">
+    <h2>Send screenshots to</h2>
+    <p class="d">Pick an AI. You need to be logged in to it in this browser.</p>
+    <div class="chips" id="chips"></div>
+  </div>
+
+  <div class="card">
+    <h2>Backup AI</h2>
+    <p class="d">If your main AI fails or doesn't answer, Snap2AI automatically tries this one with the same screenshot.</p>
+    <select id="fallback" style="width:100%;padding:10px 12px;border-radius:11px;border:1px solid var(--line);background:var(--soft);color:var(--fg);font:14px system-ui,sans-serif"></select>
+  </div>
+
+  <div class="card">
+    <h2>Prompt</h2>
+    <p class="d">Sent with every screenshot. Snap2AI also asks for a short reply with a clear final answer.</p>
+    <textarea id="prompt" spellcheck="true"></textarea>
+    <div style="margin-top:8px"><button class="link" id="reset">Reset to default</button></div>
+  </div>
+
+  <div class="card">
+    <h2>Behavior</h2>
+    <p class="d"></p>
+    <div class="opt"><div class="grow"><b>Fresh chat every time</b><span class="muted small">Starts a new conversation so old questions don't get mixed in.</span></div>
+      <label class="switch"><input type="checkbox" id="freshChat"><span class="sl"></span></label></div>
+    <div class="opt"><div class="grow"><b>Copy the answer automatically</b><span class="muted small">Puts the final answer on your clipboard as soon as it's ready.</span></div>
+      <label class="switch"><input type="checkbox" id="autoCopy"><span class="sl"></span></label></div>
+    <div class="opt"><div class="grow"><b>Show the AI tab</b><span class="muted small">Turn on if answers never arrive. Some sites don't work properly in hidden tabs.</span></div>
+      <label class="switch"><input type="checkbox" id="showTab"><span class="sl"></span></label></div>
+  </div>
+
+  <div class="card">
+    <h2>Shortcut</h2>
+    <p class="d">Press it on any page to capture the screen and ask your AI.</p>
+    <div class="row"><span class="key plain" id="key" style="font-size:14px;padding:3px 10px">Alt + S</span><span class="grow"></span>
+      <button class="btn sm" id="chg">Change shortcut</button></div>
+  </div>
+  </div>
+</div>
+<div class="toast" id="toast">Saved</div>
+<script src="shared.js"></script>
+<script src="options.js"></script>
+</body>
+</html>
