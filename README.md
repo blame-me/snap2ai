@@ -2,6 +2,8 @@
 
 A browser extension that captures your screen, sends it to your AI of choice (Gemini, ChatGPT, Claude, Grok, Copilot, Perplexity, DeepSeek, Mistral), and shows the answer in a panel on your page.
 
+**Site:** https://snap2ai-site.vercel.app · **Download:** [releases](https://github.com/blame-me/snap2ai/releases/latest)
+
 ## Install
 
 1. Download the latest release zip below and unzip it.
