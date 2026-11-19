@@ -1,0 +1,80 @@
+name: Bug report
+description: Something broke, or one of the AI sites stopped working
+title: "[bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the report. The install fixes page covers the common cases first: https://snap2ai-site.vercel.app/#fixes
+
+  - type: dropdown
+    id: browser
+    attributes:
+      label: Browser
+      options:
+        - Chrome
+        - Brave
+        - Edge
+        - Other Chromium
+    validations:
+      required: true
+
+  - type: dropdown
+    id: provider
+    attributes:
+      label: AI site
+      options:
+        - Gemini
+        - ChatGPT
+        - Claude
+        - Grok
+        - Copilot
+        - Perplexity
+        - DeepSeek
+        - Mistral
+        - Not provider specific
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: Snap2AI version
+      description: Shown in the toolbar popup, for example 5.5.0
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: What you did
+      description: The page type, the shortcut or button you used, and anything unusual about the tab.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What happened instead
+      description: If the panel showed a message, paste it here. A screenshot helps.
+    validations:
+      required: true
+
+  - type: textarea
+    id: console
+    attributes:
+      label: Console errors (optional)
+      description: Extensions page, Details, service worker, then the Console tab.
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before submitting
+      options:
+        - label: I reloaded the extension and refreshed the page
+          required: true
+        - label: I am signed into the AI site in this browser profile
+          required: true

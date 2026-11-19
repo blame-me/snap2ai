@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Install guide and fixes
+    url: https://snap2ai-site.vercel.app/#fixes
+    about: Eight common problems and how to fix them, before you open an issue.
+  - name: Download the latest build
+    url: https://github.com/blame-me/snap2ai/releases/latest
+    about: Get the current zip or check the release notes.

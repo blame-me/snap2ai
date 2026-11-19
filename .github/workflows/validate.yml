@@ -1,0 +1,38 @@
+name: Validate
+
+on:
+  push:
+    branches: [master, main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Check JavaScript syntax
+        run: |
+          for f in *.js; do
+            node --check "$f"
+          done
+
+      - name: Validate manifest
+        run: |
+          node -e "
+          const m = require('./manifest.json');
+          const required = ['manifest_version','name','version','background','action','permissions'];
+          for (const k of required) {
+            if (!(k in m)) { console.error('manifest.json is missing:', k); process.exit(1); }
+          }
+          if (m.manifest_version !== 3) { console.error('manifest_version must be 3'); process.exit(1); }
+          if (!Array.isArray(m.permissions) || !m.permissions.length) { console.error('no permissions declared'); process.exit(1); }
+          console.log('manifest ok, version', m.version);
+          "

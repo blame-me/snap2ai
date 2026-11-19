@@ -1,0 +1,32 @@
+name: Feature request
+description: An idea that would make Snap2AI more useful
+title: "[idea] "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What is annoying right now
+      description: The situation, not the solution. "I keep doing X by hand" is enough.
+    validations:
+      required: true
+
+  - type: textarea
+    id: idea
+    attributes:
+      label: What you would like it to do
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Capture and panel
+        - A specific AI site
+        - Settings and popup
+        - Install and packaging
+        - Something else
+    validations:
+      required: true

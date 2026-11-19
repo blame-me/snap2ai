@@ -1,0 +1,32 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Package the extension
+        run: |
+          mkdir -p build/snap2ai
+          cp manifest.json background.js shared.js panel.js popup.html popup.js \
+             options.html options.js ui.css README.txt README.md build/snap2ai/
+          cp -R icons build/snap2ai/icons
+          cd build
+          zip -r ../snap2ai.zip snap2ai
+          cd ..
+          ls -lh snap2ai.zip
+
+      - name: Publish the release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: snap2ai.zip
+          generate_release_notes: true
