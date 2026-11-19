@@ -23,6 +23,7 @@ jobs:
           for f in *.js; do
             node --check "$f"
           done
+          node --check site/script.js
 
       - name: Validate manifest
         run: |
